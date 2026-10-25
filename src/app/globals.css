@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-ivory font-body text-cocoa antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+  }
+  :focus-visible {
+    outline: 3px solid #315b46;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition duration-300 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-sun {
+    @apply btn bg-sunset text-cocoa shadow-soft hover:-translate-y-0.5 hover:bg-[#f69a5c];
+  }
+  .btn-leaf {
+    @apply btn bg-tropical text-ivory hover:-translate-y-0.5 hover:bg-[#3a6c54];
+  }
+  .btn-line {
+    @apply btn border border-cocoa/40 text-cocoa hover:border-cocoa hover:bg-cocoa hover:text-ivory;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.28em] text-tropical;
+  }
+  .field {
+    @apply w-full rounded-2xl border border-cocoa/25 bg-white/70 px-4 py-3 text-base text-cocoa placeholder:text-cocoa/45 transition focus:border-tropical focus:bg-white;
+  }
+  .field-error {
+    @apply border-[#b3261e];
+  }
+}
